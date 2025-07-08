@@ -6,17 +6,31 @@ import java.awt.Rectangle;
 
 public class MyButton {
 
-  private int x, y, width, height;
+  public int x, y, width, height, id;
   private String text;
   private Rectangle bounds;
   private boolean mouseOver, mousePressed;
 
+  //* Constructor for normal buttons */ 
   public MyButton(String text, int x, int y, int width, int height) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
     this.text = text;
+    this.id = -1; //! Default id for normal buttons
+  
+    initBounds();
+  }
+
+  //* Constructor for tile buttons */
+  public MyButton(String text, int x, int y, int width, int height, int id) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.text = text;
+    this.id = id; //! Id for tile buttons
   
     initBounds();
   }
@@ -78,8 +92,20 @@ public class MyButton {
     this.mouseOver = mouseOver;
   }
 
+  public boolean isMouseOver() {
+    return mouseOver;
+  }
+
+  public boolean isMousePressed() {
+    return mousePressed;
+  }
+
   public Rectangle getBounds() {
     return bounds;
+  }
+
+  public int getId() {
+    return id;
   }
 
 }

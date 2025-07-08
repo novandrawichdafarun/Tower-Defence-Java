@@ -2,11 +2,9 @@ package scenes;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
 import main.Game;
-import ui.MyButton;
-
 import static main.GameStates.*;
+import ui.MyButton;
 
 public class Settings extends GameScene implements SceneMethods {
 
@@ -63,4 +61,9 @@ public class Settings extends GameScene implements SceneMethods {
 	private void resetButtons() {
 		bMenu.resetBooleans();
 	}
+
+    @Override
+    public void mouseDragged(int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
