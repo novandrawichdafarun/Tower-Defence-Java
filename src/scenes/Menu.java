@@ -1,5 +1,6 @@
 package scenes;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -29,9 +30,9 @@ public class Menu extends GameScene implements SceneMethods {
 
 	private void initButtons() {
 
-		int w = 150;
+		int w = 170;
 		int h = w / 3;
-		int x = 640 / 2 - w / 2 ;
+		int x = 540 / 2 - w / 2;
 		int y = 200;
 		int yOffset = 100;
 
@@ -43,13 +44,15 @@ public class Menu extends GameScene implements SceneMethods {
 
 	@Override
 	public void render(Graphics g) {
+		g.setColor(Color.BLACK.darker());
+		g.fillRect(0, 0, 540, 640);
 		drawButtons(g);
 	}
 
 	private void drawButtons(Graphics g) {
 		bPlaying.draw(g);
 		bSetting.draw(g);
-		bQuit.draw(g);
+		bQuit.drawExit(g);
 
 	}
 
@@ -69,7 +72,7 @@ public class Menu extends GameScene implements SceneMethods {
 
 		for (int y = 0; y < 10; y++) {
 			for (int x = 0; x < 10; x++) {
-				sprites.add(img.getSubimage(x * 32, y * 32, 32, 32));
+				sprites.add(img.getSubimage(x * 27, y * 27, 27, 27));
 			}
 		}
 

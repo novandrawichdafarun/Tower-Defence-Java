@@ -23,7 +23,7 @@ public class Playing extends GameScene implements SceneMethods {
 
 		lvl = LevelBuild.getLevelData();
 		tileManager = new TileManager();
-		bottomBar = new BottomBar(0, 640, 640, 100, this);
+		bottomBar = new BottomBar(0, 540, 540, 100, this);
 
 	}
 
@@ -33,7 +33,7 @@ public class Playing extends GameScene implements SceneMethods {
 		for (int y = 0; y < lvl.length; y++) {
 			for (int x = 0; x < lvl[y].length; x++) {
 				int id = lvl[y][x];
-				g.drawImage(tileManager.getSprite(id), x * 32, y * 32, null);
+				g.drawImage(tileManager.getSprite(id), x * 27, y * 27, null);
 			}
 		}
 
@@ -44,7 +44,7 @@ public class Playing extends GameScene implements SceneMethods {
 
 	private void drawSelectedTile(Graphics g) {
 		if (selectedTile != null && drawSelect) {
-			g.drawImage(selectedTile.getSprite(), mouseX, mouseY, 32, 32, null);
+			g.drawImage(selectedTile.getSprite(), mouseX, mouseY, 27, 27, null);
 		}
 	}
 
@@ -59,7 +59,7 @@ public class Playing extends GameScene implements SceneMethods {
 
 	@Override
 	public void mouseClicked(int x, int y) {
-		if (y >= 640) {
+		if (y >= 540) {
 			bottomBar.mouseClicked(x, y);
 		} else {
 			changeTile(mouseX, mouseY);
@@ -68,8 +68,8 @@ public class Playing extends GameScene implements SceneMethods {
 
 	private void changeTile(int x, int y) {
 		if (selectedTile != null) {
-			int tileX = x / 32;
-			int tileY = y / 32;
+			int tileX = x / 27;
+			int tileY = y / 27;
 
 			if (lastTileX == tileX && lastTileY == tileY && lastTileId == selectedTile.getId()) {
 				return; 
@@ -84,19 +84,19 @@ public class Playing extends GameScene implements SceneMethods {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		if (y >= 640) {
+		if (y >= 540) {
 			bottomBar.mouseMoved(x, y);
 			drawSelect = false;
 		} else {
 			drawSelect = true;
-			mouseX = (x / 32) * 32;
-			mouseY = (y / 32) * 32;
+			mouseX = (x / 27) * 27;
+			mouseY = (y / 27) * 27;
 		}
 	}
 
 	@Override
 	public void mousePressed(int x, int y) {
-		if (y >= 640) {
+		if (y >= 540) {
 			bottomBar.mousePressed(x, y);
 		}
 	}
@@ -108,7 +108,7 @@ public class Playing extends GameScene implements SceneMethods {
 
 	@Override
 	public void mouseDragged(int x, int y) {
-		if (y >= 640) {
+		if (y >= 540) {
 
 		} else {
 			changeTile(x, y);

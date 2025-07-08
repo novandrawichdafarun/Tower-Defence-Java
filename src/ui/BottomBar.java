@@ -31,12 +31,12 @@ public class BottomBar {
   }
 
   private void initButtons() {
-		bMenu = new MyButton("Menu", 5, 645, 100, 30);
+		bMenu = new MyButton("Menu", 5, 545, 100, 30);
     
     int w = 50;
     int h = 50;
     int xStart = 110;
-    int yStart = 650;
+    int yStart = 550;
     int xOffset = (int) (w * 1.1f);
 
     int i = 0;
@@ -57,9 +57,9 @@ public class BottomBar {
 
   private void drawSelectedTile(Graphics g) {
     if (selectedTile != null) {
-      g.drawImage(selectedTile.getSprite(), 550, 650, 50, 50, null);
+      g.drawImage(selectedTile.getSprite(), 450, 550, 50, 50, null);
       g.setColor(Color.black);
-      g.drawRect(550, 650, 50, 50);
+      g.drawRect(450, 550, 50, 50);
     }
   }
 
@@ -93,7 +93,7 @@ public class BottomBar {
 
   public void draw(Graphics g) {
     //* Background */
-    g.setColor(new Color(220,123,15));
+    g.setColor(new Color(0x7630ff));
     g.fillRect(x, y, width, height);
 
     //* Buttons */

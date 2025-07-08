@@ -53,8 +53,22 @@ public class MyButton {
     
   }
 
+  public void drawExit(Graphics g) {
+
+    //! body
+    drawBodyExit(g);
+    
+    //! Border
+    drawBorder(g);
+    
+
+    //! Text
+    drawText(g);
+    
+  }
+
   private void drawBorder(Graphics g) {
-      g.setColor(Color.BLACK);
+      g.setColor(Color.BLACK.brighter());
       g.drawRect(x, y, width, height);
     if(mousePressed) {
       g.drawRect(x + 1, y + 1, width - 2, height - 2);
@@ -65,10 +79,20 @@ public class MyButton {
 
   private void drawBody(Graphics g) {
     if(mouseOver)
-      g.setColor(Color.GRAY);
+      g.setColor(Color.WHITE.brighter());
     else
-      g.setColor(Color.WHITE);
-    
+      g.setColor(Color.WHITE.darker());
+
+    g.fillRect(x, y, width, height);
+
+  }
+
+  private void drawBodyExit(Graphics g) {
+    if(mouseOver)
+      g.setColor(Color.RED.brighter());
+    else
+      g.setColor(Color.WHITE.darker());
+
     g.fillRect(x, y, width, height);
 
   }
