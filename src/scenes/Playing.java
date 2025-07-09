@@ -31,6 +31,15 @@ public class Playing extends GameScene implements SceneMethods {
 		// LoadSave.ReadFromFile();
 
 		createDefaultLevel();
+		loadDefaultLevel();
+	}
+
+	public void saveLevel() {
+		LoadSave.SaveLevel("new_level", lvl);
+	}
+
+	private void loadDefaultLevel() {
+		lvl = LoadSave.getLevelData("new_level");
 	}
 
 	private void createDefaultLevel() {
